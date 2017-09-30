@@ -54,17 +54,18 @@ while True:
                 playerState = int(playerChoice[i]) - 1
             else:
                 continue
-            result = resultMatrix[playerState][enemyState]# determine results
-            stats[result] += 1
-            print(resultLabels[result])
-            predictedPlayerState = randrange(0,numStates)# enemy chooses first
-            enemyState = (predictedPlayerState + 1) % numStates
-    elif playerChoice[i] == 'r' or playerChoice[i] == 'p' or playerChoice[i] == 's':
-        playerState = convertRPSTo012(playerChoice[i])
+            if i != (len(playerChoice)-1):
+                result = resultMatrix[playerState][enemyState]# determine results
+                stats[result] += 1
+                print(resultLabels[result])
+                predictedPlayerState = randrange(0,numStates)# enemy chooses first
+                enemyState = (predictedPlayerState + 1) % numStates
+    elif playerChoice == 'r' or playerChoice == 'p' or playerChoice == 's':
+        playerState = convertRPSTo012(playerChoice)
         print("Player choice: " + convert012ToRPS[playerState])
         print("CPU choice: " + convert012ToRPS[enemyState])
-    elif playerChoice[i] == '1' or playerChoice[i] == '2' or playerChoice[i] == '3':
-        playerState = int(playerChoice[i]) - 1
+    elif playerChoice == '1' or playerChoice == '2' or playerChoice == '3':
+        playerState = int(playerChoice) - 1
         print("Player choice: " + convert012ToRPS[playerState])
         print("CPU choice: " + convert012ToRPS[enemyState])
     else:

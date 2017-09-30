@@ -60,14 +60,15 @@ while True:
                 playerState = int(playerChoice[i]) - 1
             else:
                 continue
-            predictor.setLearn(playerState)
-            result = resultMatrix[playerState][enemyState]# determine results
-            stats[result] += 1
-            print(resultLabels[result])
-            predictedPlayerState = predictor.getPredictedState()# enemy chooses first
-            if predictedPlayerState == -1:
-                predictedPlayerState = randrange(0,numStates)
-            enemyState = (predictedPlayerState + 1) % numStates
+            if i != (len(playerChoice)-1):
+                predictor.setLearn(playerState)
+                result = resultMatrix[playerState][enemyState]# determine results
+                stats[result] += 1
+                print(resultLabels[result])
+                predictedPlayerState = predictor.getPredictedState()# enemy chooses first
+                if predictedPlayerState == -1:
+                    predictedPlayerState = randrange(0,numStates)
+                enemyState = (predictedPlayerState + 1) % numStates
     elif playerChoice == 'r' or playerChoice == 'p' or playerChoice == 's':
         playerState = convertRPSTo012(playerChoice)
         print("Player choice: " + convert012ToRPS[playerState])
