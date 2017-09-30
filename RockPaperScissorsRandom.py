@@ -66,4 +66,4 @@ while True:
         print("CPU choice: " + convert012ToRPS[enemyState])
         print(resultLabels[result])
     print("W/L/D: " + str(stats[0]) + "/" + str(stats[1]) + "/" + str(stats[2]))
-    print("Winning "+str(math.ceil(stats[0]/(stats[0]+stats[1]+stats[2])*100))+"%")
+    print("Winning "+str(math.ceil(stats[0]/(stats[0]+stats[1])*100))+"%")
