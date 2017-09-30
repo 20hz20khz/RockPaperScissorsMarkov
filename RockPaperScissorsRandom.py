@@ -22,7 +22,7 @@ print("-------------------------------------")
 print("Welcome to Rock Paper Scissors RANDOM")
 print("-------------------------------------")
 print("The computer will randomly pick one of the three options")
-print("You can enter r = Rock, p = Paper, s = Scissors, or q = Quit\n")
+print("You can enter r = Rock, p = Paper, s = Scissors, or q = Quit")
 print("You can enter one letter at a time OR a series of letters (like rpsrps)")
 
 def convertRPSTo012 (char):
@@ -66,4 +66,7 @@ while True:
         print("CPU choice: " + convert012ToRPS[enemyState])
         print(resultLabels[result])
     print("W/L/D: " + str(stats[0]) + "/" + str(stats[1]) + "/" + str(stats[2]))
-    print("Winning "+str(math.ceil(stats[0]/(stats[0]+stats[1])*100))+"%")
+    if stats[0]+stats[1] != 0:
+        print("Winning "+str(math.ceil(stats[0]/(stats[0]+stats[1])*100))+"%")
+    else:
+        print("Winning 0%")
