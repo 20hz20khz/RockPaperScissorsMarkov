@@ -53,7 +53,7 @@ while True:
             if playerChoice[i] == 'r' or playerChoice[i] == 'p' or playerChoice[i] == 's':
                 playerState = convertRPSTo012(playerChoice[i])
             elif playerChoice[i] == '1' or playerChoice[i] == '2' or playerChoice[i] == '3':
-                playerState = playerChoice[i] - 1
+                playerState = int(playerChoice[i]) - 1
             else:
                 continue
             predictor.setLearn(playerState)
@@ -64,17 +64,20 @@ while True:
             if predictedPlayerState == -1:
                 predictedPlayerState = randrange(0,numStates)
             enemyState = (predictedPlayerState + 1) % numStates
-    elif playerChoice != 'r' and playerChoice != 'p' and playerChoice != 's':
-        print("Enter r = Rock, p = Paper, s = Scissors, or q = Quit")
-        continue
-    else:
+    elif playerChoice == 'r' or playerChoice == 'p' or playerChoice == 's':
         playerState = convertRPSTo012(playerChoice)
-        predictor.setLearn(playerState)
-        result = resultMatrix[playerState][enemyState]# determine results
-        stats[result] += 1
         print("Player choice: " + convert012ToRPS[playerState])
         print("CPU choice: " + convert012ToRPS[enemyState])
-        print(resultLabels[result])
+    elif playerChoice == '1' or playerChoice == '2' or playerChoice == '3':
+        playerState = int(playerChoice) - 1
+        print("Player choice: " + convert012ToRPS[playerState])
+        print("CPU choice: " + convert012ToRPS[enemyState])
+    else:
+        continue
+    predictor.setLearn(playerState)
+    result = resultMatrix[playerState][enemyState]# determine results
+    stats[result] += 1
+    print(resultLabels[result])
     print("W/L/D: " + str(stats[0]) + "/" + str(stats[1]) + "/" + str(stats[2]))
     if stats[0]+stats[1] != 0:
         print("Winning "+str(math.ceil(stats[0]/(stats[0]+stats[1])*100))+"%")
