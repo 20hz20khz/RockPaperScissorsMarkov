@@ -44,10 +44,10 @@ while True:
         break
     if len(playerChoice) > 1:#if player enters long string
         for i in range(0,len(playerChoice)):
-            if playerChoice == 'r' or playerChoice == 'p' or playerChoice == 's':
+            if playerChoice[i] == 'r' or playerChoice[i] == 'p' or playerChoice[i] == 's':
                 playerState = convertRPSTo012(playerChoice[i])
-            elif playerChoice == '1' or playerChoice == '2' or playerChoice == '3':
-                playerState = playerChoice - 1
+            elif playerChoice[i] == '1' or playerChoice[i] == '2' or playerChoice[i] == '3':
+                playerState = playerChoice[i] - 1
             else:
                 continue
             result = resultMatrix[playerState][enemyState]# determine results
