@@ -48,9 +48,13 @@ while True:
     playerChoice = input("> ");
     if playerChoice == 'q':
         break
-    if len(playerChoice) > 1:#if player enters long string
+    if playerChoice == ' ':
+        continue
+    elif len(playerChoice) > 1:#if player enters long string
         for i in range(0,len(playerChoice)):
-            if playerChoice[i] == 'r' or playerChoice[i] == 'p' or playerChoice[i] == 's':
+            if playerChoice[i] == ' ':
+                continue
+            elif playerChoice[i] == 'r' or playerChoice[i] == 'p' or playerChoice[i] == 's':
                 playerState = convertRPSTo012(playerChoice[i])
             elif playerChoice[i] == '1' or playerChoice[i] == '2' or playerChoice[i] == '3':
                 playerState = int(playerChoice[i]) - 1
