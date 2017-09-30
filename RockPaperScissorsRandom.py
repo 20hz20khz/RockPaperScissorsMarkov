@@ -18,7 +18,10 @@ resultMatrix = [[2,1,0], [0,2,1], [1,0,2]]
 stats = [0,0,0]
 randomState = randrange(0,numStates)
 
-print("\nWelcome to Rock Paper Scissors RANDOM\n")
+print("-------------------------------------")
+print("Welcome to Rock Paper Scissors RANDOM")
+print("-------------------------------------")
+print("The computer will randomly pick one of the three options")
 print("Enter r = Rock, p = Paper, s = Scissors, or q = Quit\n")
 
 def convertRPSTo012 (char):

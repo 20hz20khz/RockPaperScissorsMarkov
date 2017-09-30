@@ -19,7 +19,10 @@ stats = [0,0,0]
 randomState = randrange(0,numStates)
 predictor = SecondOrderPredictor(numStates)
 
-print("\nWelcome to Rock Paper Scissors MARKOV\n")
+print("+++++++++++++++++++++++++++++++++++++")
+print("Welcome to Rock Paper Scissors MARKOV")
+print("+++++++++++++++++++++++++++++++++++++")
+print("The computer will use an algorithm to learn and predict the player's moves.")
 print("Enter r = Rock, p = Paper, s = Scissors, or q = Quit")
 
 def convertRPSTo012 (char):
