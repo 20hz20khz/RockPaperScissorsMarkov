@@ -22,7 +22,8 @@ print("-------------------------------------")
 print("Welcome to Rock Paper Scissors RANDOM")
 print("-------------------------------------")
 print("The computer will randomly pick one of the three options")
-print("Enter r = Rock, p = Paper, s = Scissors, or q = Quit\n")
+print("You can enter r = Rock, p = Paper, s = Scissors, or q = Quit\n")
+print("You can enter one letter at a time OR a series of letters (like rpsrps)")
 
 def convertRPSTo012 (char):
     if "r" in char:
@@ -43,7 +44,12 @@ while True:
         break
     if len(playerChoice) > 1:#if player enters long string
         for i in range(0,len(playerChoice)):
-            playerState = convertRPSTo012(playerChoice[i])
+            if playerChoice == 'r' or playerChoice == 'p' or playerChoice == 's':
+                playerState = convertRPSTo012(playerChoice[i])
+            elif playerChoice == '1' or playerChoice == '2' or playerChoice == '3':
+                playerState = playerChoice - 1
+            else:
+                continue
             result = resultMatrix[playerState][enemyState]# determine results
             stats[result] += 1
             print(resultLabels[result])
